@@ -1,7 +1,5 @@
 language: swift # or objective-c
 osx_image: xcode7.3
-xcode_project: Todo.xcodeproj
-xcode_scheme: Todo
 
 before_script: 'bundle install'
 
