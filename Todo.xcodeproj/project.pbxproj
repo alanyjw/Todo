@@ -47,6 +47,8 @@
 		B53F32F11D3DE29800D0F403 /* TodoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B53F32F51D3DE29800D0F403 /* TodoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoUITests.swift; sourceTree = "<group>"; };
 		B53F32F71D3DE29800D0F403 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B53F330B1D3DFF5800D0F403 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		B53F330D1D3DFF5800D0F403 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,10 +79,11 @@
 		B53F32C91D3DE29800D0F403 = {
 			isa = PBXGroup;
 			children = (
+				B53F33141D3E00FB00D0F403 /* Frameworks */,
+				B53F32D31D3DE29800D0F403 /* Products */,
 				B53F32D41D3DE29800D0F403 /* Todo */,
 				B53F32E91D3DE29800D0F403 /* TodoTests */,
 				B53F32F41D3DE29800D0F403 /* TodoUITests */,
-				B53F32D31D3DE29800D0F403 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +128,15 @@
 			path = TodoUITests;
 			sourceTree = "<group>";
 		};
+		B53F33141D3E00FB00D0F403 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B53F330B1D3DFF5800D0F403 /* Nimble.framework */,
+				B53F330D1D3DFF5800D0F403 /* Quick.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,6 +164,7 @@
 				B53F32E21D3DE29800D0F403 /* Sources */,
 				B53F32E31D3DE29800D0F403 /* Frameworks */,
 				B53F32E41D3DE29800D0F403 /* Resources */,
+				B53F330A1D3DFE1B00D0F403 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -250,6 +263,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B53F330A1D3DFE1B00D0F403 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B53F32CE1D3DE29800D0F403 /* Sources */ = {
@@ -401,6 +432,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Todo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.pivotal.singapore.Todo;
@@ -412,6 +448,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Todo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.pivotal.singapore.Todo;
