@@ -1,0 +1,13 @@
+language: swift # or objective-c
+osx_image: xcode7.3
+xcode_project: Todo.xcodeproj
+xcode_scheme: Todo
+
+rvm:
+  - 2.3.0
+
+before_script: 'bundle install'
+
+script:
+  - ./test.sh
+  - bundle exec cucumber
