@@ -5,6 +5,7 @@ cache: bundler
 
 before_script:
   - xcrun simctl erase all
+  - carthage build --platform iOS
 
 script:
   - ./test.sh
