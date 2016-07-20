@@ -21,6 +21,23 @@ end
 
 World(Todo::Table)
 
-Then(/^I should see a list of todos$/) do
+Given(/^I see a list of todos$/) do
   wait_for_table
+end
+
+When(/^I add a todo item to "([^"]+)"$/) do |todo_name|
+  touch("* marked: 'Add'")
+  touch("* marked: 'Todo Name'")
+
+  wait_for_keyboard
+
+  keyboard_enter_text(todo_name)
+
+  touch("* marked: 'Create'")
+end
+
+
+Then(/^I should see "([^"]*)" added to list$/) do |todo_name|
+  addedTodo = query("tableViewCell label marked: '#{todo_name}'")
+  expect(addedTodo).to be_any
 end
