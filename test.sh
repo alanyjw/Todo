@@ -4,9 +4,6 @@ SCHEME='Todo'
 PROJECT='Todo.xcodeproj'
 TEST_SDK='iphonesimulator9.3'
 
-which -s xcpretty
-XCPRETTY_INSTALLED=$?
-
-TEST_CMD="xctool -scheme $SCHEME -project $PROJECT test -test-sdk $TEST_SDK"
+TEST_CMD="xctool -scheme $SCHEME -project $PROJECT test -test-sdk $TEST_SDK CODE_SIGN_IDENTITY=\"\" CODE_SIGNING_REQUIRED=NO"
 
 eval "$TEST_CMD"
