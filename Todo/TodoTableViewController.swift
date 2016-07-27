@@ -17,14 +17,36 @@ class TodoTableViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    @IBAction func unwindToTodoList(unwindSegue: UIStoryboardSegue) {
-        let newIndexPath = NSIndexPath(forRow: todos.count, inSection: 0)
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "EditTodo" {
+            let todoVC = segue.destinationViewController as! TodoViewController
 
+            if let selectedCell = sender {
+                let indexPath = tableView.indexPathForCell(selectedCell as! UITableViewCell)!
+                let selectedTodo = todos[indexPath.row]
+                todoVC.todo = selectedTodo
+            }
+        }
+    }
+
+    @IBAction func unwindToTodoList(unwindSegue: UIStoryboardSegue) {
         let todoVC = unwindSegue.sourceViewController as? TodoViewController
-        let todo = todoVC!.todo
-        todos.append(todo!)
-        
-        tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            // editing todo
+            let newTodo = todoVC!.todo
+            todos[selectedIndexPath.row] = newTodo!
+
+            tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
+        } else {
+            // adding todo
+            let newIndexPath = NSIndexPath(forRow: todos.count, inSection: 0)
+
+            let todo = todoVC!.todo
+            todos.append(todo!)
+
+            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+        }
     }
 
     // UITableViewDataSource

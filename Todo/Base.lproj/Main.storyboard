@@ -22,6 +22,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="vc9-p8-a3b" kind="show" identifier="EditTodo" id="mqP-Rl-6Ff"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -55,7 +58,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rU7-p0-hwa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2019" y="417"/>
+            <point key="canvasLocation" x="2009" y="1269"/>
         </scene>
         <!--New Todo-->
         <scene sceneID="P5s-Mf-B1o">
@@ -78,7 +81,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="30" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ruj-zG-XNW">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="30" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ruj-zG-XNW">
                                         <rect key="frame" x="0.0" y="33" width="560" height="30"/>
                                         <accessibility key="accessibilityConfiguration" label="Todo Name">
                                             <accessibilityTraits key="traits" selected="YES"/>
@@ -101,7 +104,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Todo" id="xUE-Tj-3ne">
-                        <barButtonItem key="rightBarButtonItem" title="Create" id="Bk9-9C-gGm">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Bk9-9C-gGm">
                             <connections>
                                 <segue destination="NdO-6b-hBJ" kind="unwind" unwindAction="unwindToTodoList:" id="hmA-sP-pkI"/>
                             </connections>
@@ -114,7 +117,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="29x-YZ-hyj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="NdO-6b-hBJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2797" y="417"/>
+            <point key="canvasLocation" x="2771" y="441"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="W8u-Fc-XoJ">
@@ -135,4 +138,7 @@
             <point key="canvasLocation" x="418" y="417"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="mqP-Rl-6Ff"/>
+    </inferredMetricsTieBreakers>
 </document>

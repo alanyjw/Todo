@@ -33,11 +33,33 @@ When(/^I add a todo item to "([^"]+)"$/) do |todo_name|
 
   keyboard_enter_text(todo_name)
 
-  touch("* marked: 'Create'")
+  touch("* marked: 'Save'")
 end
 
 
 Then(/^I should see "([^"]*)" added to list$/) do |todo_name|
+  wait_for_element_exists("tableViewCell label marked: '#{todo_name}'")
   addedTodo = query("tableViewCell label marked: '#{todo_name}'")
   expect(addedTodo).to be_any
+end
+
+And(/^I should be able to edit "([^"]*)" to "([^"]*)"$/) do |old_todo_name, new_todo_name|
+  touch("tableViewCell label marked: '#{old_todo_name}'")
+
+  # check for title in navigation bar
+  all_items = query("navigationItemView marked: '#{old_todo_name}'")
+  button_items = query('navigationItemButtonView')
+  non_button_items = all_items.delete_if { |item| button_items.include?(item) }
+  expect(non_button_items).not_to be_empty
+
+  wait_tap("* marked: 'Todo Name'")
+
+  wait_for_keyboard
+
+  # change the name of todo
+  clear_text("textField marked: 'Todo Name'")
+  keyboard_enter_text(new_todo_name)
+
+  # save
+  touch("* marked: 'Save'")
 end

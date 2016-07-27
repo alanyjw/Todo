@@ -15,6 +15,15 @@ class TodoViewController: UIViewController {
 
     var todo: Todo?
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        if let existingTodo = todo {
+            nameTextField.text = existingTodo.name
+            self.title = existingTodo.name
+        }
+    }
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         todo = Todo(name: nameTextField.text ?? "")
     }
