@@ -42,10 +42,11 @@ class TodoTableViewController: UITableViewController {
             // adding todo
             let newIndexPath = NSIndexPath(forRow: todos.count, inSection: 0)
 
-            let todo = todoVC!.todo
-            todos.append(todo!)
+            if let todo = todoVC!.todo {
+                todos.append(todo)
 
-            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+            }
         }
     }
 

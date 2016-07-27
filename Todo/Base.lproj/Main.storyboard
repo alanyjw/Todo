@@ -104,6 +104,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Todo" id="xUE-Tj-3ne">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ad3-CT-QJH">
+                            <connections>
+                                <segue destination="NdO-6b-hBJ" kind="unwind" unwindAction="unwindToTodoList:" id="v2N-U6-bvU"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Bk9-9C-gGm">
                             <connections>
                                 <segue destination="NdO-6b-hBJ" kind="unwind" unwindAction="unwindToTodoList:" id="hmA-sP-pkI"/>
@@ -112,6 +117,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="nameTextField" destination="ruj-zG-XNW" id="3I2-iG-cVO"/>
+                        <outlet property="saveButton" destination="Bk9-9C-gGm" id="o2C-cj-ufm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="29x-YZ-hyj" userLabel="First Responder" sceneMemberID="firstResponder"/>

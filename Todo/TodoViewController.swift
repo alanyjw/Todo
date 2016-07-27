@@ -12,6 +12,7 @@ class TodoViewController: UIViewController {
 
     // Properties
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
 
     var todo: Todo?
 
@@ -25,6 +26,8 @@ class TodoViewController: UIViewController {
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        todo = Todo(name: nameTextField.text ?? "")
+        if sender === saveButton {
+            todo = Todo(name: nameTextField.text ?? "")
+        }
     }
 }
