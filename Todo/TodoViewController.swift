@@ -25,7 +25,7 @@ class TodoViewController: UIViewController {
         }
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if sender === saveButton {
             todo = Todo(name: nameTextField.text ?? "")
         }
