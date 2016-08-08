@@ -9,5 +9,4 @@ before_script:
   - carthage build --platform iOS
 
 script:
-  - ./test.sh
-  - bundle exec cucumber
+  - ./test.sh && bundle exec cucumber
