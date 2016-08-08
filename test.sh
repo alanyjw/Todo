@@ -7,7 +7,7 @@ TEST_SDK="iphonesimulator10.0"
 xcodebuild \
   -scheme $SCHEME \
   -project $PROJECT \
-  -destination 'platform=iOS Simulator,name=iPhone 6s,OS=9.3' \
+  -destination 'platform=iOS Simulator,name=iPhone 6s,OS=10.0' \
   -sdk $TEST_SDK \
   clean build test \
   CODE_SIGN_IDENTITY="" \
