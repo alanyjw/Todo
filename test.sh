@@ -2,7 +2,7 @@
 
 SCHEME="Todo"
 PROJECT="Todo.xcodeproj"
-TEST_SDK="iphonesimulator9.3"
+TEST_SDK="iphonesimulator10.0"
 
 xcodebuild \
   -scheme $SCHEME \
