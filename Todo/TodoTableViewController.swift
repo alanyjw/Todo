@@ -17,7 +17,7 @@ class TodoTableViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EditTodo" {
             let todoVC = segue.destination as! TodoViewController
 
