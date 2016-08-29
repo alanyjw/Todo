@@ -187,3 +187,6 @@ test-servers/
 # bundler
 .bundle
 vendor
+
+# Output from test.sh
+.log

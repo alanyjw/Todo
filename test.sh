@@ -4,6 +4,8 @@ SCHEME="Todo"
 PROJECT="Todo.xcodeproj"
 TEST_SDK="iphonesimulator10.0"
 
+mkdir .log
+
 xcodebuild \
   -scheme $SCHEME \
   -project $PROJECT \
@@ -12,11 +14,11 @@ xcodebuild \
   clean build test \
   CODE_SIGN_IDENTITY="" \
   CODE_SIGNING_REQUIRED=NO \
-  > /tmp/output 2>&1
+  > .log/output 2>&1
 
 if [ $? -ne 0 ]; then
-  cat /tmp/output
+  cat .log/output
   exit 1
 fi
 
-cat /tmp/output | xcpretty
+cat .log/output | xcpretty
