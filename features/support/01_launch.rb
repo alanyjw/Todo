@@ -21,7 +21,7 @@ end
 Before do |scenario|
   launcher = Calabash::Launcher.launcher
   options = {
-    # Add launch options here.
+    DEVICE_TARGET: 'iPhone 6s (10.0)'
   }
 
   launcher.relaunch(options)
