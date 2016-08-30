@@ -4,7 +4,7 @@ SCHEME="Todo"
 PROJECT="Todo.xcodeproj"
 TEST_SDK="iphonesimulator10.0"
 
-mkdir .log
+mkdir -p .log
 
 xcodebuild \
   -scheme $SCHEME \
