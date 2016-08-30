@@ -9,4 +9,5 @@ before_script:
   - carthage build --platform iOS
 
 script:
+  - open -b com.apple.iphonesimulator
   - ./test.sh && bundle exec cucumber
