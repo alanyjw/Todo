@@ -17,52 +17,52 @@ class TodoTableViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "EditTodo" {
-            let todoVC = segue.destination as! TodoViewController
+            let todoVC = segue.destinationViewController as! TodoViewController
 
             if let selectedCell = sender {
-                let indexPath = tableView.indexPath(for: selectedCell as! UITableViewCell)!
-                let selectedTodo = todos[(indexPath as NSIndexPath).row]
+                let indexPath = tableView.indexPathForCell(selectedCell as! UITableViewCell)!
+                let selectedTodo = todos[indexPath.row]
                 todoVC.todo = selectedTodo
             }
         }
     }
 
-    @IBAction func unwindToTodoList(_ unwindSegue: UIStoryboardSegue) {
-        let todoVC = unwindSegue.source as? TodoViewController
+    @IBAction func unwindToTodoList(unwindSegue: UIStoryboardSegue) {
+        let todoVC = unwindSegue.sourceViewController as? TodoViewController
 
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             // editing todo
             let newTodo = todoVC!.todo
-            todos[(selectedIndexPath as NSIndexPath).row] = newTodo!
+            todos[selectedIndexPath.row] = newTodo!
 
-            tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
         } else {
             // adding todo
-            let newIndexPath = IndexPath(row: todos.count, section: 0)
+            let newIndexPath = NSIndexPath(forRow: todos.count, inSection: 0)
 
             if let todo = todoVC!.todo {
                 todos.append(todo)
 
-                tableView.insertRows(at: [newIndexPath], with: .bottom)
+                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
             }
         }
     }
 
     // UITableViewDataSource
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todos.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TodoTableViewCell", for: indexPath)
-        let todo = todos[(indexPath as NSIndexPath).row]
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("TodoTableViewCell", forIndexPath: indexPath)
+        let todo = todos[indexPath.row]
 
         cell.textLabel?.text = todo.name
 
