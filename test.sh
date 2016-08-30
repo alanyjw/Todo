@@ -14,11 +14,5 @@ xcodebuild \
   clean build test \
   CODE_SIGN_IDENTITY="" \
   CODE_SIGNING_REQUIRED=NO \
-  > .log/output 2>&1
-
-if [ $? -ne 0 ]; then
-  cat .log/output
-  exit 1
-fi
-
-cat .log/output | xcpretty
+  | tee .log/xcodebuild.log \
+  | xcpretty && exit ${PIPESTATUS[0]}
