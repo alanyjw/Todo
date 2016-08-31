@@ -4,12 +4,6 @@ CURR_DIR=$(pwd)
 SCHEME="Todo"
 PROJECT="$CURR_DIR/Todo.xcodeproj"
 TEST_SDK="iphonesimulator9.3"
-LOG_DIR="$CURR_DIR/.log"
-LOG_FILE="$LOG_DIR/xcodebuild.log"
-
-mkdir -p $LOG_DIR
-
-touch $LOG_FILE
 
 xcodebuild \
   -scheme $SCHEME \
@@ -19,5 +13,4 @@ xcodebuild \
   clean build test \
   CODE_SIGN_IDENTITY="" \
   CODE_SIGNING_REQUIRED=NO \
-  | tee $LOG_FILE\
   | xcpretty && exit ${PIPESTATUS[0]}
