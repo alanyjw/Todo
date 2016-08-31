@@ -2,4 +2,4 @@
 
 set -e
 
-bundle exec ruby ci/shutdown_device.rb
+/bin/su - nctx -c "bundle exec ruby ci/shutdown_device.rb"
