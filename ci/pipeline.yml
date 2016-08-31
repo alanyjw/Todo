@@ -19,6 +19,8 @@ jobs:
       run:
         dir: todo-ios
         path: ./run_test
+        args:
+        - unit_test
   # - name: ui-tests
   #   plan:
   #     - aggregate:
