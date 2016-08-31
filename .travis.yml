@@ -10,4 +10,4 @@ before_script:
 
 script:
   - open -b com.apple.iphonesimulator
-  - ./unit_test && XCODEPROJ="Todo.xcodeproj" bundle exec cucumber
+  - ./ci/tasks/unit_test && XCODEPROJ="Todo.xcodeproj" ./ci/tasks/automation_test
