@@ -1,0 +1,63 @@
+resources:
+- name: todo-ios
+  type: git
+  source:
+    uri: https://github.com/alanyjw/Todo.git
+    branch: master
+
+jobs:
+- name: unit-tests
+  plan:
+  - get: todo-ios
+    trigger: true
+  - task: bundle
+    tags: [ios]
+    config:
+      platform: darwin
+      inputs:
+      - name: todo-ios
+      run:
+        dir: todo-ios
+        path: bundle
+  - task: start device
+    tags: [ios]
+    config:
+      platform: darwin
+      inputs:
+      - name: todo-ios
+      run:
+        dir: todo-ios
+        path: ci/start_device
+  - task: unit-test
+    tags: [ios]
+    config:
+      platform: darwin
+      inputs:
+      - name: todo-ios
+      run:
+        dir: todo-ios
+        path: ./test.sh
+  - task: shutdown device
+    tags: [ios]
+    config:
+      platform: darwin
+      inputs:
+      - name: todo-ios
+      run:
+        dir: todo-ios
+        path: ci/shutdown_device
+  # - name: ui-tests
+  #   plan:
+  #     - aggregate:
+  #       - get: todo-ios
+  #         passed: [unit-tests]
+  #     - task: ui-test
+  #       tags: [ios]
+  #       config:
+  #         platform: darwin
+  #         inputs: [todo-ios]
+  #         run:
+  #           path: bundle
+  #           args:
+  #             - exec cucumber
+  #
