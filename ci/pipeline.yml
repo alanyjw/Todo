@@ -10,24 +10,6 @@ jobs:
   plan:
   - get: todo-ios
     trigger: true
-  - task: bundle
-    tags: [ios]
-    config:
-      platform: darwin
-      inputs:
-      - name: todo-ios
-      run:
-        dir: todo-ios
-        path: bundle
-  - task: start device
-    tags: [ios]
-    config:
-      platform: darwin
-      inputs:
-      - name: todo-ios
-      run:
-        dir: todo-ios
-        path: ./start_device
   - task: unit-test
     tags: [ios]
     config:
@@ -36,16 +18,7 @@ jobs:
       - name: todo-ios
       run:
         dir: todo-ios
-        path: ./test.sh
-  - task: shutdown device
-    tags: [ios]
-    config:
-      platform: darwin
-      inputs:
-      - name: todo-ios
-      run:
-        dir: todo-ios
-        path: ./shutdown_device
+        path: ./run_test
   # - name: ui-tests
   #   plan:
   #     - aggregate:

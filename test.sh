@@ -1,10 +1,11 @@
 #! /bin/bash
 
+CURR_DIR=$(pwd)
 SCHEME="Todo"
-PROJECT="Todo.xcodeproj"
+PROJECT="$CURR_DIR/Todo.xcodeproj"
 TEST_SDK="iphonesimulator9.3"
 
-mkdir -p .log
+mkdir -p "$CURR_DIR/.log"
 
 xcodebuild \
   -scheme $SCHEME \
@@ -14,5 +15,5 @@ xcodebuild \
   clean build test \
   CODE_SIGN_IDENTITY="" \
   CODE_SIGNING_REQUIRED=NO \
-  | tee .log/xcodebuild.log \
+  | tee "$CURR_DIR/.log/xcodebuild.log" \
   | xcpretty && exit ${PIPESTATUS[0]}

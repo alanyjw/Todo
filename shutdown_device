@@ -1,5 +1,0 @@
-#! /bin/sh
-
-set -e
-
-/usr/bin/su - nctx -c "cd `pwd`; `which bundle` exec ruby `pwd`/ci/shutdown_device.rb"
