@@ -1,5 +1,0 @@
-#! /bin/bash
-
-set -e
-
-sudo -H -u nctx -s "cd `pwd`; `pwd`/$1"

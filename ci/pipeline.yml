@@ -18,8 +18,9 @@ jobs:
       - name: todo-ios
       run:
         dir: todo-ios
-        path: ./run_test
+        path: ./run_as
         args:
+        - nctx
         - unit_test
   - task: automation test
     tags: [ios]
@@ -29,6 +30,7 @@ jobs:
       - name: todo-ios
       run:
         dir: todo-ios
-        path: ./run_test
+        path: ./run_as
         args:
+        - nctx
         - automation_test

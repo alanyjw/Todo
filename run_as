@@ -1,0 +1,5 @@
+#! /bin/bash
+
+set -e
+
+sudo -H -u $1 -s "cd `pwd`; `pwd`/$2"
