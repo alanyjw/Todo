@@ -27,7 +27,7 @@ jobs:
       - name: todo-ios
       run:
         dir: todo-ios
-        path: ci/start_device
+        path: ./start_device
   - task: unit-test
     tags: [ios]
     config:
@@ -45,7 +45,7 @@ jobs:
       - name: todo-ios
       run:
         dir: todo-ios
-        path: ci/shutdown_device
+        path: ./shutdown_device
   # - name: ui-tests
   #   plan:
   #     - aggregate:

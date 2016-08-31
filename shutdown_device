@@ -1,0 +1,5 @@
+#! /bin/sh
+
+set -e
+
+bundle exec ruby ci/shutdown_device.rb
