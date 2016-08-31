@@ -6,11 +6,11 @@ resources:
     branch: master
 
 jobs:
-- name: unit-tests
+- name: tests
   plan:
   - get: todo-ios
     trigger: true
-  - task: unit-test
+  - task: unit test
     tags: [ios]
     config:
       platform: darwin
@@ -21,18 +21,14 @@ jobs:
         path: ./run_test
         args:
         - unit_test
-  # - name: ui-tests
-  #   plan:
-  #     - aggregate:
-  #       - get: todo-ios
-  #         passed: [unit-tests]
-  #     - task: ui-test
-  #       tags: [ios]
-  #       config:
-  #         platform: darwin
-  #         inputs: [todo-ios]
-  #         run:
-  #           path: bundle
-  #           args:
-  #             - exec cucumber
-  #
+  - task: automation test
+    tags: [ios]
+    config:
+      platform: darwin
+      inputs:
+      - name: todo-ios
+      run:
+        dir: todo-ios
+        path: ./run_test
+        args:
+        - automation_test
