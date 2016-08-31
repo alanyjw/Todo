@@ -3,4 +3,4 @@
 set -e
 
 cd `pwd`
-bundle exec cucumber
+DEVICE_TARGET="Unit Tests @ iPhone 6s 9.3" bundle exec cucumber
