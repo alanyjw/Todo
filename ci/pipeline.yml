@@ -21,7 +21,7 @@ jobs:
         path: ./run_as
         args:
         - nctx
-        - unit_test
+        - ci/unit_test
   - task: automation test
     tags: [ios]
     config:
@@ -33,4 +33,4 @@ jobs:
         path: ./run_as
         args:
         - nctx
-        - automation_test
+        - ci/automation_test

@@ -5,6 +5,8 @@ SCHEME="Todo"
 PROJECT="$CURR_DIR/Todo.xcodeproj"
 TEST_SDK="iphonesimulator9.3"
 
+cd $CURR_DIR
+
 xcodebuild \
   -scheme $SCHEME \
   -project $PROJECT \
