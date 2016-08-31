@@ -10,4 +10,4 @@ before_script:
 
 script:
   - open -b com.apple.iphonesimulator
-  - ./test.sh && XCODEPROJ="Todo.xcodeproj" bundle exec cucumber
+  - ./unit_test && XCODEPROJ="Todo.xcodeproj" bundle exec cucumber
