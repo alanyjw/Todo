@@ -5,4 +5,4 @@ set -e
 DEVICE_TARGET=${DEVICE_TARGET:-''}
 
 cd `pwd`
-DEVICE_TARGET=$DEVICE_TARGET bundle exec cucumber
+DEVICE_TARGET="$DEVICE_TARGET" bundle exec cucumber
