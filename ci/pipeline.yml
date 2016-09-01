@@ -29,7 +29,7 @@ jobs:
       inputs:
       - name: todo-ios
       params:
-        DEVICE_STRING: 'platform=iOS Simulator,name=Unit Tests @ iPhone 6s 9.3,OS=9.3'
+        DEVICE_STRING: 'platform=iOS,name=iPhone 1'
       run:
         dir: todo-ios
         path: ./run_as
@@ -43,7 +43,7 @@ jobs:
       inputs:
       - name: todo-ios
       params:
-        DEVICE_TARGET: 'Unit Tests @ iPhone 6s 9.3 (9.3)'
+        DEVICE_TARGET: 'iPhone 1 (9.3.2)'
       run:
         dir: todo-ios
         path: ./run_as

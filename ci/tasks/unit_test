@@ -3,7 +3,7 @@
 CURR_DIR=$(pwd)
 SCHEME="Todo"
 PROJECT="$CURR_DIR/Todo.xcodeproj"
-TEST_SDK="iphonesimulator9.3"
+TEST_SDK=${SDK:="iphonesimulator9.3"}
 DESTINATION=${DEVICE_STRING:="platform=iOS Simulator,name=iPhone 6s,OS=9.3"}
 
 cd $CURR_DIR
@@ -12,7 +12,7 @@ xcodebuild \
   -scheme $SCHEME \
   -project $PROJECT \
   -destination "$DESTINATION" \
-  -sdk $TEST_SDK \
+  -sdk "$TEST_SDK" \
   clean build test \
   CODE_SIGN_IDENTITY="" \
   CODE_SIGNING_REQUIRED=NO \
