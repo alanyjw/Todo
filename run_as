@@ -2,4 +2,4 @@
 
 set -ex
 
-sudo -EH -u $1 -i "cd `pwd`; `pwd`/$2"
+sudo -u $1 -i "cd `pwd`; `pwd`/$2"
