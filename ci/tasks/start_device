@@ -4,5 +4,5 @@ set -ex
 
 CURR_DIR=$(pwd)
 
-env
-bundle && bundle exec ruby "$CURR_DIR/ci/tasks/start_device.rb"
+bundle
+bundle exec ruby "$CURR_DIR/ci/tasks/start_device.rb"
