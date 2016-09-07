@@ -10,6 +10,8 @@ DESTINATION=${DEVICE_STRING:="platform=iOS Simulator,name=iPhone 6s,OS=9.3"}
 
 cd $CURR_DIR
 
+bundle
+
 xcodebuild \
   -scheme $SCHEME \
   -project $PROJECT \
