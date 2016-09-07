@@ -1,5 +1,7 @@
 #! /bin/bash
 
+set -ex
+
 CURR_DIR=$(pwd)
 SCHEME="Todo"
 PROJECT="$CURR_DIR/Todo.xcodeproj"

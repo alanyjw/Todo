@@ -1,5 +1,5 @@
 #! /bin/bash
 
-set -e
+set -ex
 
 sudo -EH -u $1 -s "cd `pwd`; `pwd`/$2"
