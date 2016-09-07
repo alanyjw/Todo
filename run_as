@@ -2,4 +2,4 @@
 
 set -ex
 
-sudo -EH -u $1 -s "eval \"$(rbenv init -)\"; cd `pwd`; `pwd`/$2"
+sudo -EH -u $1 -s "export PATH=\"\$HOME/.rbenv/bin:\$PATH\"; eval \"\$(rbenv init -)\"; cd `pwd`; `pwd`/$2"
