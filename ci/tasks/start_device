@@ -5,4 +5,4 @@ set -ex
 CURR_DIR=$(pwd)
 
 env
-bundle exec ruby "$CURR_DIR/ci/tasks/start_device.rb"
+/Users/nctx/.rbenv/shims/bundle exec ruby "$CURR_DIR/ci/tasks/start_device.rb"
