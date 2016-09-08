@@ -17,7 +17,7 @@ existing_device.map do |d|
     d.wait! { |d| d.state == :shutdown }
   end
   d.delete!
-  puts "Deleted device: { name: '#{d.name}', runtime: '#{d.runtime.name}', type: '#{d.devicetype.name}', udid: '#{d.udid}' }"
+  puts "Deleted device: { name: '#{d.name}', runtime: '#{ d.runtime.name if d.runtime }', type: '#{ d.devicetype.name if d.devicetype }', udid: '#{d.udid}' }"
 end
 
 device = SimCtl.create_device device_name, devicetype, runtime
