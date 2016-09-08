@@ -12,6 +12,8 @@ cd $CURR_DIR
 
 bundle
 
+DevToolsSecurity -status
+
 xcodebuild \
   -scheme $SCHEME \
   -project $PROJECT \
