@@ -6,7 +6,7 @@ runtime = SimCtl.runtime(name: runtime_name)
 type_name = 'iPhone 6s'
 devicetype = SimCtl.devicetype(name: type_name)
 
-device_name = 'Unit Tests @ iPhone 6s 9.3'
+device_name = 'iPhone 6s'
 
 existing_device = SimCtl.list_devices.find_all { |d| d.name =~ /#{device_name}/ }
 puts "Deleting device#{"s" if existing_device.size > 1}..." if existing_device.any?
