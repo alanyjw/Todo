@@ -21,8 +21,8 @@ existing_device.map do |d|
 
   begin
     puts "Deleted device: { name: '#{d.name}', runtime: '#{ d.runtime.name if d.runtime }', type: '#{ d.devicetype.name if d.devicetype }', udid: '#{d.udid}' }"
-  rescue SimCtl::RuntimeNotFound => e
-    puts "Ignoring device due to missing runtime"
+  rescue StandardError => e
+    puts "Error encountered while logging..."
     puts e
   end
 end
