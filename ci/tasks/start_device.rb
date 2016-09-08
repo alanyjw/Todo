@@ -1,11 +1,19 @@
 require 'simctl'
 
-runtime = SimCtl.runtime(name: 'iOS 9.3')
+runtime_name = 'iOS 9.3'
+runtime = SimCtl.runtime(name: runtime_name)
 
-devicetype = SimCtl.devicetype(name: 'iPhone 6s')
+type_name = 'iPhone 6s'
+devicetype = SimCtl.devicetype(name: type_name)
 
-device = SimCtl.create_device 'Unit Tests @ iPhone 6s 9.3', devicetype, runtime
+device_name = 'Unit Tests @ iPhone 6s 9.3'
+
+device = SimCtl.create_device device_name, devicetype, runtime
+puts "Created device: { name: '#{device_name}', runtime: '#{runtime_name}', type: '#{type_name}', udid: '#{device.udid}' }"
 
 device.launch!
+puts "Device launched!"
 
+puts "Waiting for device to boot..."
 device.wait! {|d| d.state == :booted}
+puts "Device booted!"
