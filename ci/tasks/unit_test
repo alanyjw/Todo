@@ -12,7 +12,7 @@ cd $CURR_DIR
 
 bundle
 
-DevToolsSecurity -status
+env
 
 xcodebuild \
   -scheme $SCHEME \
