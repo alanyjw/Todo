@@ -8,6 +8,13 @@ devicetype = SimCtl.devicetype(name: type_name)
 
 device_name = 'Unit Tests @ iPhone 6s 9.3'
 
+existing_device = SimCtl.list_devices.find_all { |d| d.name =~ /#{device_name}/ }
+puts "Deleting device#{"s" if existing_device.any?}..."
+existing_device.map do |d|
+  d.delete!
+  puts "Deleted device: { name: '#{d.name}', runtime: '#{d.runtime.name}', type: '#{d.devicetype.name}', udid: '#{d.udid}' }"
+end
+
 device = SimCtl.create_device device_name, devicetype, runtime
 puts "Created device: { name: '#{device_name}', runtime: '#{runtime_name}', type: '#{type_name}', udid: '#{device.udid}' }"
 
