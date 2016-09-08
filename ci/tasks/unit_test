@@ -5,14 +5,12 @@ set -ex
 CURR_DIR=$(pwd)
 SCHEME="Todo"
 PROJECT="$CURR_DIR/Todo.xcodeproj"
-TEST_SDK=${SDK:="iphonesimulator9.3"}
-DESTINATION=${DEVICE_STRING:="platform=iOS Simulator,name=iPhone 6s,OS=9.3"}
+TEST_SDK=${SDK:="iphoneos9.3"}
+DESTINATION=${DEVICE_STRING:="platform=iOS,name=iPhone 1"}
 
 cd $CURR_DIR
 
 bundle
-
-env
 
 xcodebuild \
   -scheme $SCHEME \
@@ -20,6 +18,4 @@ xcodebuild \
   -destination "$DESTINATION" \
   -sdk "$TEST_SDK" \
   clean build test \
-  CODE_SIGN_IDENTITY="" \
-  CODE_SIGNING_REQUIRED=NO \
   | xcpretty && exit ${PIPESTATUS[0]}
