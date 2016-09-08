@@ -9,7 +9,7 @@ devicetype = SimCtl.devicetype(name: type_name)
 device_name = 'Unit Tests @ iPhone 6s 9.3'
 
 existing_device = SimCtl.list_devices.find_all { |d| d.name =~ /#{device_name}/ }
-puts "Deleting device#{"s" if existing_device > 1}..." if existing_device.any?
+puts "Deleting device#{"s" if existing_device.size > 1}..." if existing_device.any?
 existing_device.map do |d|
   if d.state != :shutdown
     d.shutdown!
