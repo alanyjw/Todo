@@ -40,8 +40,6 @@
 		B53F32E61D3DE29800D0F403 /* TodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B53F32EA1D3DE29800D0F403 /* TodoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTests.swift; sourceTree = "<group>"; };
 		B53F32EC1D3DE29800D0F403 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B53F330B1D3DFF5800D0F403 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
-		B53F330D1D3DFF5800D0F403 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +106,6 @@
 		B53F33141D3E00FB00D0F403 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B53F330B1D3DFF5800D0F403 /* Nimble.framework */,
-				B53F330D1D3DFF5800D0F403 /* Quick.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
