@@ -18,4 +18,4 @@ xcodebuild \
   -destination "$DESTINATION" \
   -sdk "$TEST_SDK" \
   clean build test \
-  | xcpretty && exit ${PIPESTATUS[0]}
+  # | xcpretty && exit ${PIPESTATUS[0]}
