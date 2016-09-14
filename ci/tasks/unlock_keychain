@@ -4,7 +4,13 @@ set -ex
 
 KEYCHAIN_PATH="/Users/nctx/Library/Keychains/xcode.keychain"
 
-echo "Current keychain: `security default-keychain`"
+echo "Previous keychain: `security default-keychain`"
+
+security find-identity -p codesigning
 
 security unlock-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
 security default-keychain -s $KEYCHAIN_PATH
+
+echo "Current keychain: `security default-keychain`"
+
+security find-identity -p codesigning
