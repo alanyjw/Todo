@@ -1,0 +1,10 @@
+#! /bin/bash
+
+set -ex
+
+KEYCHAIN_PATH="/Users/nctx/Library/Keychains/xcode.keychain"
+
+echo "Current keychain: `security default-keychain`"
+
+security unlock-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
+security default-keychain -s $KEYCHAIN_PATH
