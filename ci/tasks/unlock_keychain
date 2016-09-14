@@ -15,4 +15,5 @@ echo "Current keychain: `security default-keychain`"
 
 whoami
 security list-keychain
+security show-keychain-info $KEYCHAIN_PATH
 security find-identity -p codesigning
