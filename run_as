@@ -2,7 +2,7 @@
 
 set -ex
 
-read -r -d COMMAND_STRING <<EOF
+read -r -d COMMAND_STRING <<'EOF'
 cd $(pwd)
 $(pwd)/$2
 EOF
