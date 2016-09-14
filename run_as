@@ -3,9 +3,8 @@
 set -ex
 
 COMMAND_STRING=$(cat <<EOF
-export KEYCHAIN_PASSWORD=$KEYCHAIN_PASSWORD
 cd $(pwd)
 $(pwd)/$2
 EOF)
 
-sudo -u $1 -i "$COMMAND_STRING"
+sudo -u $1 -i KEYCHAIN_PASSWORD=$KEYCHAIN_PASSWORD "$COMMAND_STRING"
