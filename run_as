@@ -2,9 +2,9 @@
 
 set -ex
 
-read -r -d COMMAND_STRING <<'EOF'
+COMMAND_STRING=$(cat <<EOF
 cd $(pwd)
 $(pwd)/$2
-EOF
+EOF)
 
 sudo -u $1 -i "$COMMAND_STRING"
