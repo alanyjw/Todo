@@ -3,8 +3,8 @@
 set -ex
 
 read -r -d COMMAND_STRING <<EOF
-cd `pwd`
-`pwd`/$2
+cd `pwd`;
+`pwd`/$2;
 EOF
 
 sudo -u $1 -i $COMMAND_STRING
