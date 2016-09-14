@@ -17,14 +17,8 @@ existing_device.map do |d|
     d.wait! { |d| d.state == :shutdown }
   end
 
+  puts "Deleted device: { name: '#{d.name}', runtime: '#{d.runtime.name}', type: '#{ d.devicetype.name if d.devicetype }', udid: '#{d.udid}' }"
   d.delete!
-
-  begin
-    puts "Deleted device: { name: '#{d.name}', runtime: '#{ d.runtime.name if d.runtime }', type: '#{ d.devicetype.name if d.devicetype }', udid: '#{d.udid}' }"
-  rescue StandardError => e
-    puts "Error encountered while logging..."
-    puts e
-  end
 end
 
 device = SimCtl.create_device device_name, devicetype, runtime
