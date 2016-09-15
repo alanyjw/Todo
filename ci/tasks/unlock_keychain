@@ -3,6 +3,7 @@
 set -ex
 
 KEYCHAIN_PATH="/Users/nctx/Library/Keychains/xcode.keychain"
+PROJ_DIR=$(pwd)
 
 echo "Previous keychain: `security default-keychain`"
 
@@ -10,7 +11,7 @@ if [ ! -f $KEYCHAIN_PATH ]; then
   security create-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
 fi
 
-security import ./cert/todo.p12 -t agg -k $KEYCHAIN_PATH -P $CERT_PASSWORD
+security import $PROJ_DIR/cert/todo.p12 -t agg -k $KEYCHAIN_PATH -P $CERT_PASSWORD
 
 security default-keychain -d system -s $KEYCHAIN_PATH
 security unlock-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
