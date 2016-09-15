@@ -4,32 +4,40 @@ resources:
   source:
     uri: https://github.com/alanyjw/Todo.git
     branch: master
+- name: cert
+  type: s3
+  source:
+    bucket: concourseci-xcode
+    access_key_id: {{s3-access-key-id}}
+    secret_access_key: {{s3-secret-access-key}}
+    region_name: ap-southeast-1
+    versioned_file: todo/todo.p12
 
 jobs:
 - name: tests
   plan:
   - get: todo-ios
     trigger: true
-  - task: start device
+  - get: cert
+  - task: add keychain
     tags: [ios]
+    params:
+      KEYCHAIN_PASSWORD: {{keychain-password}}
+      CERT_PASSWORD: {{cert-password}}
     config:
       platform: darwin
       inputs:
       - name: todo-ios
+      - name: cert
       run:
         dir: todo-ios
-        path: ./run_as
-        args:
-        - nctx
-        - ci/tasks/start_device
+        path: ./ci/tasks/add_keychain
   - task: unit test
     tags: [ios]
     config:
       platform: darwin
       inputs:
       - name: todo-ios
-      params:
-        DEVICE_STRING: 'platform=iOS,name=iPhone 1'
       run:
         dir: todo-ios
         path: ./run_as
@@ -43,22 +51,11 @@ jobs:
       inputs:
       - name: todo-ios
       params:
-        DEVICE_TARGET: 'iPhone 1 (9.3.2)'
+        DEVICE_TARGET: eec4222e1b03d82a692d11b56ea965c18df624aa
+        DEVICE_NAME: milo
       run:
         dir: todo-ios
         path: ./run_as
         args:
         - nctx
         - ci/tasks/automation_test
-  - task: shutdown device
-    tags: [ios]
-    config:
-      platform: darwin
-      inputs:
-      - name: todo-ios
-      run:
-        dir: todo-ios
-        path: ./run_as
-        args:
-        - nctx
-        - ci/tasks/shutdown_device
