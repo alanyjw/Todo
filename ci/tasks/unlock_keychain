@@ -15,8 +15,6 @@ security import $PROJ_DIR/../cert/todo.p12 -t agg -k $KEYCHAIN_PATH -P $CERT_PAS
 
 security default-keychain -s $KEYCHAIN_PATH
 
-security find-identity -p codesigning
-
 security list-keychain
 security show-keychain-info $KEYCHAIN_PATH
 security find-identity -p codesigning
