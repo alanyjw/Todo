@@ -12,7 +12,6 @@ cd $CURR_DIR
 
 whoami
 security list-keychain
-security show-keychain-info $KEYCHAIN_PATH
 security find-identity -p codesigning
 
 bundle
