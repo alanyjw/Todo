@@ -5,8 +5,6 @@ set -ex
 KEYCHAIN_PATH="/Library/Keychains/xcode.keychain"
 PROJ_DIR=$(pwd)
 
-echo "Previous keychain: `security default-keychain`"
-
 if [ ! -f $KEYCHAIN_PATH ]; then
   security create-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
 fi
@@ -19,9 +17,6 @@ security default-keychain -s $KEYCHAIN_PATH
 
 security find-identity -p codesigning
 
-echo "Current keychain: `security default-keychain`"
-
-whoami
 security list-keychain
 security show-keychain-info $KEYCHAIN_PATH
 security find-identity -p codesigning
