@@ -1,0 +1,7 @@
+#! /bin/bash
+
+set -ex
+
+KEYCHAIN_PATH="/Library/Keychains/xcode.keychain"
+
+security delete-keychain $KEYCHAIN_PATH

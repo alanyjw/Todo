@@ -59,3 +59,13 @@ jobs:
         args:
         - nctx
         - ci/tasks/automation_test
+  - task: remove keychain
+    tags: [ios]
+    params:
+      KEYCHAIN_PASSWORD: {{keychain-password}}
+      CERT_PASSWORD: {{cert-password}}
+    config:
+      platform: darwin
+      run:
+        dir: todo-ios
+        path: ./ci/tasks/remove_keychain
