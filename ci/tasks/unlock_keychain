@@ -2,7 +2,7 @@
 
 set -ex
 
-KEYCHAIN_PATH="/Users/nctx/Library/Keychains/xcode.keychain"
+KEYCHAIN_PATH="/Library/Keychains/xcode.keychain"
 PROJ_DIR=$(pwd)
 
 echo "Previous keychain: `security default-keychain`"
