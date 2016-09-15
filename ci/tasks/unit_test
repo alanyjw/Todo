@@ -10,7 +10,7 @@ DESTINATION=${DEVICE_STRING:="platform=iOS,name=milo"}
 
 export PATH=/usr/local/bin:$PATH
 
-eval $(rbenv init -)
+eval "$(rbenv init -)"
 
 cd $CURR_DIR
 
