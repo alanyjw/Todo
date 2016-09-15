@@ -8,15 +8,7 @@ PROJECT="$CURR_DIR/Todo.xcodeproj"
 TEST_SDK=${SDK:="iphoneos9.3"}
 DESTINATION=${DEVICE_STRING:="platform=iOS,name=milo"}
 
-export PATH=/usr/local/bin:$PATH
-
-eval "$(rbenv init -)"
-
 cd $CURR_DIR
-
-whoami
-security list-keychain
-security find-identity -p codesigning
 
 bundle
 
