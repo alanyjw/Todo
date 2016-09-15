@@ -190,3 +190,6 @@ vendor
 
 # Output from test.sh
 .log
+
+# Config
+ci/vars.yml
