@@ -11,7 +11,7 @@ security unlock-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
 
 security import $PROJ_DIR/../cert/todo.p12 -t agg -k $KEYCHAIN_PATH -P $CERT_PASSWORD -T /usr/bin/codesign
 
-security default-keychain -d system -s $KEYCHAIN_PATH
+security default-keychain -s $KEYCHAIN_PATH
 
 security find-identity -p codesigning
 
