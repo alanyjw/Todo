@@ -7,10 +7,6 @@ PROJ_DIR=$(pwd)
 
 echo "Previous keychain: `security default-keychain`"
 
-if [ ! -f $KEYCHAIN_PATH ]; then
-  security create-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
-fi
-
 security unlock-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
 
 security import $PROJ_DIR/../cert/todo.p12 -t agg -k $KEYCHAIN_PATH -P $CERT_PASSWORD
