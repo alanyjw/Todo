@@ -6,19 +6,19 @@ KEYCHAIN_PATH="/Library/Keychains/xcode.keychain"
 PROJ_DIR=$(pwd)
 
 if [ ! -f $KEYCHAIN_PATH ]; then
-  security create-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
+  security -v create-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
 fi
 
-security unlock-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
+security -v unlock-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
 
-security import $PROJ_DIR/../cert/todo.p12 -t agg -k $KEYCHAIN_PATH -P $CERT_PASSWORD -T /usr/bin/codesign
+security -v import $PROJ_DIR/../cert/todo.p12 -t agg -k $KEYCHAIN_PATH -P $CERT_PASSWORD -T /usr/bin/codesign
 
-security default-keychain -s $KEYCHAIN_PATH
+security -v default-keychain -s $KEYCHAIN_PATH
 
-security list-keychain
-security show-keychain-info $KEYCHAIN_PATH
+security -v list-keychain
+security -v show-keychain-info $KEYCHAIN_PATH
 
-IDENTITIES=$(security find-identity -p codesigning)
+IDENTITIES=$(security -v find-identity -p codesigning)
 
 if [[ $IDENTITIES == *"0 valid identities found"* ]]
 then
