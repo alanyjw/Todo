@@ -14,9 +14,8 @@ security unlock-keychain -p $KEYCHAIN_PASSWORD $XCODE_KEYCHAIN_PATH
 
 security import $PROJ_DIR/../cert/todo.p12 -t agg -k $XCODE_KEYCHAIN_PATH -P $CERT_PASSWORD -T /usr/bin/codesign
 
-security default-keychain -s $XCODE_KEYCHAIN_PATH
-
 security list-keychain -s $SYSTEM_KEYCHAIN_PATH $XCODE_KEYCHAIN_PATH
+
 security show-keychain-info $XCODE_KEYCHAIN_PATH
 
 IDENTITIES=$(security find-identity -p codesigning)
