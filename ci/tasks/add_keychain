@@ -2,21 +2,22 @@
 
 set -ex
 
-KEYCHAIN_PATH="/Library/Keychains/xcode.keychain"
+SYSTEM_KEYCHAIN_PATH="/Library/Keychains/System.keychain"
+XCODE_KEYCHAIN_PATH="/Library/Keychains/xcode.keychain"
 PROJ_DIR=$(pwd)
 
-if [ ! -f $KEYCHAIN_PATH ]; then
-  security create-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
+if [ ! -f $XCODE_KEYCHAIN_PATH ]; then
+  security create-keychain -p $KEYCHAIN_PASSWORD $XCODE_KEYCHAIN_PATH
 fi
 
-security unlock-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
+security unlock-keychain -p $KEYCHAIN_PASSWORD $XCODE_KEYCHAIN_PATH
 
-security import $PROJ_DIR/../cert/todo.p12 -t agg -k $KEYCHAIN_PATH -P $CERT_PASSWORD -T /usr/bin/codesign
+security import $PROJ_DIR/../cert/todo.p12 -t agg -k $XCODE_KEYCHAIN_PATH -P $CERT_PASSWORD -T /usr/bin/codesign
 
-security default-keychain -s $KEYCHAIN_PATH
+security default-keychain -s $XCODE_KEYCHAIN_PATH
 
-security list-keychain
-security show-keychain-info $KEYCHAIN_PATH
+security list-keychain -s $SYSTEM_KEYCHAIN_PATH $XCODE_KEYCHAIN_PATH
+security show-keychain-info $XCODE_KEYCHAIN_PATH
 
 IDENTITIES=$(security find-identity -p codesigning)
 
