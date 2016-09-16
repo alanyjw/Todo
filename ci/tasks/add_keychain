@@ -17,4 +17,13 @@ security default-keychain -s $KEYCHAIN_PATH
 
 security list-keychain
 security show-keychain-info $KEYCHAIN_PATH
-security find-identity -p codesigning
+
+IDENTITIES=$(security find-identity -p codesigning)
+IDENTITIES_FOUND=$(echo $IDENTITIES | tail -1 | cut -c6)
+
+if [ "$IDENTITIES_FOUND" == "0" ]
+then
+  RED='\033[0;31m'
+  echo -e "${RED}No identity found."
+  exit 1
+fi
