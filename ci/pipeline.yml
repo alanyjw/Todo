@@ -66,6 +66,8 @@ jobs:
       CERT_PASSWORD: {{cert-password}}
     config:
       platform: darwin
+      inputs:
+      - name: todo-ios
       run:
         dir: todo-ios
         path: ./ci/tasks/remove_keychain
