@@ -20,7 +20,7 @@ security show-keychain-info $KEYCHAIN_PATH
 
 IDENTITIES=$(security find-identity -p codesigning)
 
-if [ "$IDENTITIES_FOUND" == *"0 valid identities found"* ]
+if [[ "$IDENTITIES_FOUND" == *"0 valid identities found"* ]]
 then
   RED='\033[0;31m'
   echo -e "${RED}No identity found."
