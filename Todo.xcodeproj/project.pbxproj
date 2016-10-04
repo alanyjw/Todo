@@ -162,11 +162,13 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 89A6V964HC;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 					};
 					B53F32E51D3DE29800D0F403 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 89A6V964HC;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 						TestTargetID = B53F32D11D3DE29800D0F403;
 					};
 				};
@@ -377,7 +379,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.pivotal.Todo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "caebeb63-96b3-432f-80e9-c9cfa2c81f6c";
+				PROVISIONING_PROFILE_SPECIFIER = "Pivotal Singapore Apps";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -396,7 +399,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.pivotal.Todo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "caebeb63-96b3-432f-80e9-c9cfa2c81f6c";
+				PROVISIONING_PROFILE_SPECIFIER = "Pivotal Singapore Apps";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

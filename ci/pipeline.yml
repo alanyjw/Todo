@@ -52,9 +52,6 @@ jobs:
       platform: darwin
       inputs:
       - name: todo-ios
-      params:
-        PROVISIONING_PROFILE: caebeb63-96b3-432f-80e9-c9cfa2c81f6c
-        PROVISIONING_PROFILE_SPECIFIER: "Pivotal Singapore Apps"
       run:
         dir: todo-ios
         path: ./run_as
