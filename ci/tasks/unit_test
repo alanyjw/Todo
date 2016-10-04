@@ -17,5 +17,7 @@ xcodebuild \
   -project $PROJECT \
   -destination "$DESTINATION" \
   -sdk "$TEST_SDK" \
+  PROVISIONING_PROFILE="$PROVISIONING_PROFILE" \
+  PROVISIONING_PROFILE_SPECIFIER="$PROVISIONING_PROFILE_SPECIFIER" \
   clean build test \
   | xcpretty && exit ${PIPESTATUS[0]}
