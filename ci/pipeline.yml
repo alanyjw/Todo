@@ -65,7 +65,7 @@ jobs:
       inputs:
       - name: todo-ios
       params:
-        CODE_SIGN_IDENTITY: iPhone Developer: New Context (6K44KRYD64)
+        CODE_SIGN_IDENTITY: "iPhone Developer: New Context (6K44KRYD64)"
         DEVICE_TARGET: eec4222e1b03d82a692d11b56ea965c18df624aa
         DEVICE_NAME: milo
       run:
