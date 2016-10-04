@@ -32,6 +32,20 @@ jobs:
       run:
         dir: todo-ios
         path: ./ci/tasks/add_keychain
+  - task: check device connected
+    tags: [ios]
+    params:
+      DEVICE_NAME: milo
+    config:
+      platform: darwin
+      inputs:
+      - name: todo-ios
+      run:
+        dir: todo-ios
+        path: ./run_as
+        args:
+        - nctx
+        - ci/tasks/check_device_connected
   - task: unit test
     tags: [ios]
     config:

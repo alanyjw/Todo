@@ -1,0 +1,16 @@
+#! /bin/bash
+
+set -ex
+
+CONNECTED_DEVICES=$(xcrun instruments -s devices)
+
+if [[ $CONNECTED_DEVICES == *$DEVICE_NAME* ]]
+then
+  GREEN='\033[0;32m'
+  echo -e "${GREEN}Success! Found device with name, \"$DEVICE_NAME\"."
+  exit 0
+fi
+
+RED='\033[0;31m'
+echo -e "${RED}No device name, \"$DEVICE_NAME\" found."
+exit 1
