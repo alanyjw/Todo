@@ -5,7 +5,7 @@ set -ex
 CURR_DIR=$(pwd)
 SCHEME="Todo"
 PROJECT="$CURR_DIR/Todo.xcodeproj"
-TEST_SDK=${SDK:="iphoneos9.3"}
+TEST_SDK=${SDK:="iphoneos"}
 DESTINATION=${DEVICE_STRING:="platform=iOS,name=milo"}
 
 cd $CURR_DIR
@@ -18,4 +18,4 @@ xcodebuild \
   -destination "$DESTINATION" \
   -sdk "$TEST_SDK" \
   clean build test \
-  # | xcpretty && exit ${PIPESTATUS[0]}
+  | xcpretty && exit ${PIPESTATUS[0]}
