@@ -8,8 +8,10 @@ DEVICE_TARGET=${DEVICE_TARGET:-''}
 cd `pwd`
 
 bundle
+
 BUNDLE_ID="io.pivotal.Todo" \
   CODE_SIGN_IDENTITY="$CODE_SIGN_IDENTITY" \
   DEVICE_ENDPOINT="http://$DEVICE_NAME.local:37265" \
   DEVICE_TARGET="$DEVICE_TARGET" \
+  DEBUG=1 \
   bundle exec cucumber
